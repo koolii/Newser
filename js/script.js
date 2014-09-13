@@ -1,4 +1,6 @@
 $(function() {
+	SpeechRecognition = webkitSpeechRecognition || mozSpeechRecognition || SpeechRecognition;
+
 	var Ajax = {
 		execute: function(keyword) {
 			var $_this = this;
@@ -59,4 +61,37 @@ $(function() {
 			console.log("Success Ajax: " + result);
 		});
 
+	var Recognition = function() {
+		console.log("========== Create Recognition ==========");
+
+		this.recognition = new SpeechRecognition();
+		this.recognition.continuous = true;
+    	this.recognition.interimResults = true;
+
+		this.nowRecogniting = false;
+
+		this.recognition.onresult = function (e) {
+	        if (e.results.length > 0) {
+	            var value = e.results[0][0].transcript;
+	            console.log("Onresult: " + value);
+	        }
+	    };
+	};
+
+	Recognition.prototype.start = function() {
+		console.log("========== Recognition Start ==========");
+		recognition.lang = "ja-JP";
+		nowRecogniting = true;
+	};
+
+	Recognition.prototype.stop = function() {
+		console.log("========== Recognition End ==========");
+		recognition.stop();
+		nowRecogniting = false;
+	};
+
+
+	var recognition = new Recognition();
+
+	recognition.start();
 });
