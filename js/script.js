@@ -1,6 +1,6 @@
 $(function() {
 	console.log("test");
-	var call = "callbackTest";
+	var call = "callback";
 
 	$.ajax({
 		type: 'GET',
@@ -10,7 +10,7 @@ $(function() {
 		jsonp: call
 	}).done(function(result) {
 		console.log(result);
-		
+
 	}).fail(function(msg){
 		alert(msg);
 	}).complete(function(){
