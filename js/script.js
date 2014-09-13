@@ -7,10 +7,7 @@ $(function() {
 		url: 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-&query=isai',
 		// crossDomain: true,
 		dataType : "jsonp",
-		jsonp: call,
-		jsonpCallback: function(result) {
-			console.log("jsonpCallback");
-		}
+		jsonpCallback: "callbackTest"
 	}).done(function(result) {
 		console.log(result);
 
@@ -20,3 +17,8 @@ $(function() {
 		console.warn("complete!!");
 	});
 });
+
+function callbackTest(result) {
+	console.log("callbacktest");
+	console.log(result);
+}
