@@ -3,6 +3,7 @@ $(function() {
 
 	var Ajax = {
 		execute: function(keyword) {
+			var $_this = this;
 			var $def = $.Deferred();
 			var url = this.createUrl(keyword);
 
@@ -13,7 +14,7 @@ $(function() {
 			}).done(function(result) {
 				console.log(result);
 
-				$def.resolve(this.callBack(result));
+				$def.resolve($_this.callBack(result));
 			}).error(function(msg){
 				alert(msg);
 				$def.reject();
