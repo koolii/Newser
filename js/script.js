@@ -29,7 +29,7 @@ $(function() {
 		},
 
 		createUrl: function(keywords) {
-			var params = $.extend(defaults, keywords);
+			var params = $.extend(this.defaults, keywords);
 			var url = '';
 
 			var baseUrl = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-';
@@ -54,7 +54,7 @@ $(function() {
 		}
 	}; // end Ajax
 
-	$.when(Ajax.execute("isai"))
+	$.when(Ajax.execute({ query: "isai" )})
 		.done(function(result) {
 			console.log("Success Ajax: " + result);
 		});
