@@ -80,16 +80,16 @@ $(function() {
 
 	Recognition.prototype.start = function() {
 		console.log("========== Recognition Start ==========");
-		recognition.lang = "ja-JP";
-		nowRecogniting = true;
+		this.recognition.lang = "ja-JP";
+		this.nowRecogniting = true;
 
-		recognition.start();
+		this.recognition.start();
 	};
 
 	Recognition.prototype.stop = function() {
 		console.log("========== Recognition End ==========");
-		recognition.stop();
-		nowRecogniting = false;
+		this.recognition.stop();
+		this.nowRecogniting = false;
 	};
 
 
