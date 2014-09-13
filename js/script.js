@@ -54,7 +54,7 @@ $(function() {
 		}
 	}; // end Ajax
 
-	$.when(Ajax.execute({ query: "isai" )})
+	$.when(Ajax.execute({ query: "isai" })
 		.done(function(result) {
 			console.log("Success Ajax: " + result);
 		});
