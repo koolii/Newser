@@ -82,6 +82,8 @@ $(function() {
 		console.log("========== Recognition Start ==========");
 		recognition.lang = "ja-JP";
 		nowRecogniting = true;
+
+		recognition.start();
 	};
 
 	Recognition.prototype.stop = function() {
