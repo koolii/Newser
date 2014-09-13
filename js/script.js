@@ -7,7 +7,7 @@ $(function() {
 		crossDomain: true		
 	}).done(function(result) {
 		console.log(result);
-	})error(function(msg){
+	}).error(function(msg){
 		alert(msg);
 	}).complete(function(){
 		console.warn("complete!!");
