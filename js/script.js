@@ -3,7 +3,7 @@ $(function() {
 
 	var Ajax = {
 		execute: function(keyword) {
-			var $def = $.Defferd();
+			var $def = $.Deferred();
 			var url = this.createUrl(keyword);
 
 			$.ajax({
