@@ -7,7 +7,10 @@ $(function() {
 		url: 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-&query=isai',
 		// crossDomain: true,
 		dataType : "jsonp",
-		jsonp: call
+		jsonp: call,
+		jsonpCallback: function(result) {
+			console.log("jsonpCallback");
+		}
 	}).done(function(result) {
 		console.log(result);
 
