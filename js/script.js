@@ -3,7 +3,7 @@ $(function() {
 
 	$.ajax({
 		type: 'GET',
-		url: 'https://api.apigw.smt.docomo.ne.jp/webCuration/v2/contents?genreId=1&num=100&APIKEY=4f75466b4a71694a5634446b733058734a6668764e6d63782f465532385677704a79306e554d3168715430&lang=ja&format=json',
+		url: 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-&query=%E8%AE%83%E5%B2%90%E3%81%86%E3%81%A9%E3%82%93',
 		crossDomain: true		
 	}).done(function(result) {
 		console.log(result);
