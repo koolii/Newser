@@ -1,6 +1,4 @@
 $(function() {
-	console.log("test");
-
 	var Ajax = {
 		execute: function(keyword) {
 			var $_this = this;
@@ -25,10 +23,28 @@ $(function() {
 			return $def.promise();
 		},
 
-		createUrl: function(keyword) {
-			var baseUrl = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-';
-			return baseUrl + '&query=' + keyword;
+		defaults: {
+			hits: 25,
+			sort: 'score'
+		},
 
+		createUrl: function(keywords) {
+			var params = $.extend(defaults, keywords);
+			var url = '';
+
+			var baseUrl = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-';
+			//return baseUrl + '&query=' + keyword;
+
+			// 今回は必ず入力するようにする
+			//if (params.query) {
+				url = baseUrl + "&query=" + params.query;
+			//}
+
+			if (params.hits) {
+				url += "&hits=" + params.hits;
+			}
+
+			return url;
 		},
 		callBack: function(result) {
 			var html = $.parseHTML(result.results[0]);
@@ -36,7 +52,7 @@ $(function() {
 
 			return $.parseJSON($pElement.text());
 		}
-	};
+	}; // end Ajax
 
 	$.when(Ajax.execute("isai"))
 		.done(function(result) {
