@@ -98,7 +98,7 @@ $(function() {
 						var $div = $('<div>');
 
 
-						$div.append('<div><img height="250" width="300" src="' + thumb + '" /></div><div>' + headline + '</div>');
+						$div.append('<div><img height="250px" width="300px" src="' + thumb + '" /></div><div>' + headline + '</div>');
 						$div.appendTo($li);
 
 						$li.appendTo($ul);
