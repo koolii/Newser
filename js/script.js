@@ -13,6 +13,7 @@ $(function() {
 				type: 'GET',
 				url: url,
 				crossDomain: true,
+				datatype: params.datatype
 			}).done(function(result) {
 				console.log(result);
 
