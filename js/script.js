@@ -175,7 +175,7 @@ $(function() {
 
 
 	// Click Event
-	$('.l-grid-item').on('click', '.popup', function() {
+	$(document).on('click', '.popup', function() {
 		alert($(this).find('div').val());
 	});
 
