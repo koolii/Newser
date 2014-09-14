@@ -180,11 +180,14 @@ $(function() {
 
 
 	// Click Event
-	$(document).on('click', '.popup', function() {
+	$(document).on('click', '.l-grid-item', function() {
 		// alert($(this).next().text());
+		window.open($(this).find("a").attr("href"),'_self');
+		return false;
 	});
 
-	$("a.fancy").fancybox({
+	$("a.fancy").on("click", function() {
+		$(this).fancybox({
  			'width'				: '9',
  			'height'			: '85%',
  			'autoScale'			: false,
@@ -192,6 +195,7 @@ $(function() {
  			'transitionOut'		: 'none',
  			'type'				: 'iframe'
  		});
+	});
 
 
 	getNews();
