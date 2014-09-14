@@ -52,7 +52,7 @@ $(function() {
 			var html = $.parseHTML(result.results[0]);
 			var $pElement = $(html[5]);
 
-			return $.parseJSON($pElement.text());
+			return $.parseJSON($pElement.text()).ResultSet[0].Result;
 		}
 	}; // end Ajax
 
@@ -80,6 +80,9 @@ $(function() {
 	        		interimText += e.results[i][0].transcript;
 	        	}
 	        }
+
+	        // Insert Value in DOM
+	        $('#speech-text').val(finalText);
 	    };
 	};
 
@@ -99,8 +102,18 @@ $(function() {
 		this.recognition.stop();
 		this.nowRecogniting = false;
 	};
+	// End Recognition
 
 
+	// Click Event
+	$('#search').on(function(e) {
+		e.preventDefault();
+
+		$.when(Ajax.execute($('#search-content').val()))
+			.done(functio(result)) {
+				console.log("Success Ajax: " + result);	
+			};
+	});
 
 
 
