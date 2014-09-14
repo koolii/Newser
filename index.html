@@ -8,6 +8,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/jquery.xdomainajax.js"></script>
+	<script src="js/jquery.xml2json.js"></script>
 	<script src="js/script.js"></script>
 </head>
 <body>
@@ -15,15 +16,21 @@
 	</header>
 
 	<div id="contents">
-	このサイトはアナウンサーなど主に声を使って仕事をする人々に向けた原稿練習サービスです
-	以下のSTEPだけなのでとても簡単です
-
+		<div>
+			このサイトはアナウンサーなど主に声を使って仕事をする人々に向けた原稿練習サービスです
+			以下のSTEPだけなのでとても簡単です
+		</div>
 		<ol>
 			<li>どのような原稿を読むのか検索する</li>
 			<li>読むものを選択する</li>
 			<li>スタートボタンを押してスピーチを開始</li>
 			<li>スピーチでは経過時間と正しく発音することができているかの判定を行います</li>
 		</ol>
+	</div>
+
+	<div>
+		<h2>お試し</h2>
+		<textarea id="speech-text-test" disabled="disabled"></textarea>
 	</div>
 
 	<div>
@@ -34,12 +41,10 @@
 		</div>
 	</div>
 
+	<button id="generate-hiragana">Translation</button>
+
 	<div id="search-result">
 		<h2>検索結果</h2>
-	</div>
-
-	<div>
-		<textarea id="speech-text"></textarea>
 	</div>
 
 	<footer>

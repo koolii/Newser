@@ -1,5 +1,7 @@
 $(function() {
-	SpeechRecognition = webkitSpeechRecognition || mozSpeechRecognition || SpeechRecognition;
+	SpeechRecognition = webkitSpeechRecognition
+	 || mozSpeechRecognition 
+	 || SpeechRecognition;
 
 	var Ajax = {
 		execute: function(keyword) {
@@ -26,28 +28,39 @@ $(function() {
 		},
 
 		defaults: {
+			// search
+			type: '',
 			hits: 25,
-			sort: 'score'
+			sort: 'score',
+			// furigana
+			sentence: '栗山'
 		},
 
 		createUrl: function(keywords) {
 			var params = $.extend(this.defaults, keywords);
 			var url = '';
+			var type = params.type;
 
-			var baseUrl = 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-';
+			var baseUrl = params.url;
 			//return baseUrl + '&query=' + keyword;
+			if (!type)return;
 
-			// 今回は必ず入力するようにする
-			//if (params.query) {
-				url = baseUrl + "&query=" + params.query;
-			//}
+			if (type == 'search') {
+				// 今回は必ず入力するようにする
+				//if (params.query) {
+					url = baseUrl + "&query=" + params.query;
+				//}
 
-			if (params.hits) {
-				url += "&hits=" + params.hits;
+				if (params.hits) {
+					url += "&hits=" + params.hits;
+				}
+			} else if (type == 'furigana') {
+				sentence = params.sentence;
 			}
 
 			return url;
 		},
+
 		callBack: function(result) {
 			var html = $.parseHTML(result.results[0]);
 			var $pElement = $(html[5]);
@@ -55,6 +68,36 @@ $(function() {
 			return $.parseJSON($pElement.text()).ResultSet[0].Result;
 		}
 	}; // end Ajax
+
+
+	var searchItemByShop = function(keyword) {
+		var keywords = {
+			type: 'search',
+			url: 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-',
+			query: keyword	
+		};
+
+		$.when(Ajax.execute(keywords))
+			.done(function(json) {
+				console.log("Success Ajax: " + json);	
+				return json;
+		});
+	};
+
+	var getHiragana = function(str) {
+		var keywords = {
+			type: 'furigana',
+			url: 'http://jlp.yahooapis.jp/FuriganaService/V1/furigana?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-',
+			sentence: str
+		};
+
+		$.when(Ajax.execute(keywords))
+			.then(function(xml) {
+				console.debug('===== getHiragana ===== ' + 'keyword: ' + xml);
+				var json = $.xml2json(xml);
+				return json;
+			});
+	};
 
 
 	var Recognition = function() {
@@ -83,7 +126,7 @@ $(function() {
             //$finalSpan.textContent = finalText;
  
 	        // Insert Value in DOM
-	        $('#speech-text').val(finalText);
+	        $('#speech-text-test').val(finalText);
 	    };
 	};
 
@@ -107,20 +150,17 @@ $(function() {
 
 
 	// Click Event
-	$('#search').on(function(e) {
+	$('#search').on('click', function(e) {
 		e.preventDefault();
 
-		$.when(Ajax.execute($('#search-content').val()))
-			.done(function(result) {
-				console.log("Success Ajax: " + result);	
-			});
+		// 商品を取得する
+		var result = searchItemByShop($('#search-content').val());
 	});
 
+	$('#generate-hiragana').on('click', function(e) {
+		e.preventDefault();
 
-
-	$.when(Ajax.execute({ query: "isai" }))
-		.done(function(result) {
-			console.log("Success Ajax: " + result);
+		var result = getHiragana("栗山隆仁");
 	});
 
 	var recognition = new Recognition();
