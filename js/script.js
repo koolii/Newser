@@ -73,7 +73,7 @@ $(function() {
 	}; // end Ajax
 
 
-	var getNews = function(keyword) {
+	var getNews = function() {
 		var keywords = {
 			type: 'search',
 			url: 'http://webservice.recruit.co.jp/r25/article/v1?type=full&tag=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&key=9108db1fd6db519e&format=json',
@@ -89,6 +89,7 @@ $(function() {
 
 				$.each(objs, function() {
 					console.log(this.urls.pc);
+					console.log(this.section[0].image[0]);
 				});
 		});
 	};
@@ -160,13 +161,7 @@ $(function() {
 	// End Recognition
 
 
-	// Click Event
-	$('#search').on('click', function(e) {
-		e.preventDefault();
-
-		// 商品を取得する
-		getNews($('#search-content').val());
-	});
+	getnews();
 
 	$('#generate-hiragana').on('click', function(e) {
 		e.preventDefault();
