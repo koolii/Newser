@@ -95,13 +95,15 @@ $(function() {
 
 						var $img = $('<img>').attr('src', this.urls.pc);
 						var $li = $('<li>').addClass('l-grid-item pointer');
+
+						$li.wrap('<a class="test">');
 						var $div = $('<div>');
 
 
 						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /><span class="is-none">' + headline + '</span></div>');
 						$div.appendTo($li);
 
-						$li.wrap('<a class="fancybox" href="' + this.urls.pc  +'">');
+						// $li.wrap('<a class="fancybox" href="' + this.urls.pc  +'">');
 
 						$li.appendTo($ul);
 					}
@@ -179,8 +181,16 @@ $(function() {
 	// Click Event
 	$(document).on('click', '.popup', function() {
 		// alert($(this).next().text());
-		$("a.fancybox").fancybox();
 	});
+
+	$("a.fancy").fancybox({
+ 			'width'				: '9',
+ 			'height'			: '85%',
+ 			'autoScale'			: false,
+ 			'transitionIn'		: 'none',
+ 			'transitionOut'		: 'none',
+ 			'type'				: 'iframe'
+ 		});
 
 
 	getNews();
