@@ -174,6 +174,12 @@ $(function() {
 	// End Recognition
 
 
+	// Click Event
+	$('.l-grid-item').on('click', function() {
+		alert($(this).find('div'));
+	});
+
+
 	getNews();
 
 	$('#generate-hiragana').on('click', function(e) {

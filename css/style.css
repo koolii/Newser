@@ -4,6 +4,10 @@ li {
 	list-style-type: none;
 }
 
+img {
+	border: 10px solid gray;
+}
+
 .pointer {
 	cursor: pointer;
 }
