@@ -77,7 +77,7 @@ $(function() {
 		var keywords = {
 			type: 'search',
 			url: 'http://webservice.recruit.co.jp/r25/article/v1?type=full&tag=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&key=9108db1fd6db519e&format=json',
-			count: 10
+			count: 50
 		};
 
 		$.when(Ajax.execute(keywords))
