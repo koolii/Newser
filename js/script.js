@@ -94,7 +94,7 @@ $(function() {
 					console.log(this.urls.pc);
 					console.log(this.section[0].image[0]);
 
-					if (!content && !content.s) {
+					if (!content) {
 						var $img = $('<img>').attr('src', this.urls.pc);
 						var $li = $('<li>');
 						var $div = $('<div>');
