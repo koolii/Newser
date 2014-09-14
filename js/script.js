@@ -161,7 +161,7 @@ $(function() {
 	// End Recognition
 
 
-	getnews();
+	getNews();
 
 	$('#generate-hiragana').on('click', function(e) {
 		e.preventDefault();
