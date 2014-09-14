@@ -85,7 +85,11 @@ $(function() {
 				var json = $.parseJSON(result);
 
 				console.log("Success Ajax: " + json);	
-				return json.ResultSet[0].Result;
+				var objs = json.ResultSet[0].Result;
+
+				$.each(objs, function() {
+					console.log(this);
+				});
 		});
 	};
 
@@ -161,11 +165,7 @@ $(function() {
 		e.preventDefault();
 
 		// 商品を取得する
-		var result = searchItemByShop($('#search-content').val());
-
-		$.each(result, function() {
-			console.log(this);
-		})
+		searchItemByShop($('#search-content').val());
 	});
 
 	$('#generate-hiragana').on('click', function(e) {
