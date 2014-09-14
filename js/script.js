@@ -56,13 +56,11 @@ $(function() {
 		}
 	}; // end Ajax
 
-	$.when(Ajax.execute({ query: "isai" }))
-		.done(function(result) {
-			console.log("Success Ajax: " + result);
-		});
 
 	var Recognition = function() {
 		console.log("========== Create Recognition ==========");
+
+		var finalText = '', interimText = '';
 
 		this.recognition = new SpeechRecognition();
 		this.recognition.continuous = true;
@@ -71,9 +69,16 @@ $(function() {
 		this.nowRecogniting = false;
 
 		this.recognition.onresult = function (e) {
-	        if (e.results.length > 0) {
-	            var value = e.results[0][0].transcript;
+	        for (var i = 0; i < e.results.length; i++) {
+	        	if (e.results[i].isFinal) {
+	            var value = e.results[i][0].transcript;
 	            console.log("Onresult: " + value);
+
+	            finalText += value;
+
+	        	} else {
+	        		interimText += e.results[i][0].transcript;
+	        	}
 	        }
 	    };
 	};
@@ -81,6 +86,9 @@ $(function() {
 	Recognition.prototype.start = function() {
 		console.log("========== Recognition Start ==========");
 		this.recognition.lang = "ja-JP";
+
+		if (this.nowRecogniting)return false;
+
 		this.nowRecogniting = true;
 
 		this.recognition.start();
@@ -93,7 +101,14 @@ $(function() {
 	};
 
 
-	var recognition = new Recognition();
 
+
+
+	$.when(Ajax.execute({ query: "isai" }))
+		.done(function(result) {
+			console.log("Success Ajax: " + result);
+	});
+
+	var recognition = new Recognition();
 	recognition.start();
 });
