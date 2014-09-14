@@ -4,7 +4,7 @@ $(function() {
 	 || SpeechRecognition;
 
 	var Ajax = {
-		execute: function(keyword) {
+		execute: function(params) {
 			var $_this = this;
 			var $def = $.Deferred();
 			var url = this.createUrl(keyword);
@@ -83,7 +83,7 @@ $(function() {
 		$.when(Ajax.execute(keywords))
 			.done(function(result) {
 				var json = $.parseJSON(result);
-				
+
 				console.log("Success Ajax: " + json);	
 				return json.ResultSet[0].Result;
 		});
