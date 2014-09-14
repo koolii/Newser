@@ -107,6 +107,14 @@ $(function() {
 						// $li.wrap('<a class="fancybox" href="' + this.urls.pc  +'">');
 
 						$li.appendTo($ul);
+
+						$a.fancybox({
+				 			'height'			: '85%',
+				 			'autoScale'			: false,
+				 			'transitionIn'		: 'none',
+				 			'transitionOut'		: 'none',
+				 			'type'				: 'iframe'
+				 		});
 					}
 				});
 		});
@@ -182,20 +190,20 @@ $(function() {
 	// Click Event
 	$(document).on('click', '.l-grid-item', function() {
 		// alert($(this).next().text());
-		$(this).find("a").trigger("click");
+		// $(this).find("a").trigger("click");
 		return false;
 	});
 
-	$(document).on("mouseover", ".fancy", function() {
-		$(this).fancybox({
- 			'width'				: '9',
- 			'height'			: '85%',
- 			'autoScale'			: false,
- 			'transitionIn'		: 'none',
- 			'transitionOut'		: 'none',
- 			'type'				: 'iframe'
- 		});
-	});
+	// $(document).on("mouseover", ".fancy", function() {
+	// 	$(this).fancybox({
+ // 			'width'				: '9',
+ // 			'height'			: '85%',
+ // 			'autoScale'			: false,
+ // 			'transitionIn'		: 'none',
+ // 			'transitionOut'		: 'none',
+ // 			'type'				: 'iframe'
+ // 		});
+	// });
 
 
 	getNews();
