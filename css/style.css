@@ -1,11 +1,11 @@
 @charset "utf-8"
 
 li {
-	text-decoration: none;
+	list-style-type: none;
 }
 
 .pointer {
-	cusor: pointer;
+	cursor: pointer;
 }
 
 .is-none {
