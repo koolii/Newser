@@ -69,16 +69,18 @@ $(function() {
 		this.nowRecogniting = false;
 
 		this.recognition.onresult = function (e) {
-        	var len = e.results.lengh;
-        	var result = e.results[len - 1];
-        	var target = result[0];
-        	//target.isFinish = true;
-            console.log("Onresult: " + target.transcript);
-
-            if (length > 0) {
-		       console.log(event.results);
-    	       finalText += target.transcript;
-			}
+            console.debug('[onresult]', e.results.length);
+            var finalText = '';
+            var interimText = '';
+            for (var i = 0; i < e.results.length; i++) {
+                if (e.results[i].isFinal) {
+                    finalText += e.results[i][0].transcript;
+                } else {
+                    interimText += e.results[i][0].transcript;
+                }
+            }
+            //$interimSpan.textContent = interimText;
+            //$finalSpan.textContent = finalText;
  
 	        // Insert Value in DOM
 	        $('#speech-text').val(finalText);
