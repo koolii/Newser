@@ -92,9 +92,9 @@ $(function() {
 					console.log(this.urls.pc);
 					console.log(this.section[0].image[0]);
 
-					var $img = $('img').attr('src', this.urls.pc);
-					var $li = $('li');
-					var $div = $('div');
+					var $img = $('<img>').attr('src', this.urls.pc);
+					var $li = $('<li>');
+					var $div = $('<div>');
 
 					$div.append('<div><img src="' + this.urls.pc + '" /></div><div>' + this.section[0].image[0] + '</div>');
 					$div.appendTo($li);
