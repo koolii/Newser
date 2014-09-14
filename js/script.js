@@ -68,7 +68,7 @@ $(function() {
 			var html = $.parseHTML(result.results[0]);
 			var $pElement = $(html[5]);
 
-			return $.parseJSON($pElement.text());
+			return $pElement.text();
 		}
 	}; // end Ajax
 
@@ -81,7 +81,9 @@ $(function() {
 		};
 
 		$.when(Ajax.execute(keywords))
-			.done(function(json) {
+			.done(function(result) {
+				var json = $.parseJSON(result);
+				
 				console.log("Success Ajax: " + json);	
 				return json.ResultSet[0].Result;
 		});
@@ -95,6 +97,7 @@ $(function() {
 			sentence: str
 		};
 
+		// jsonに
 		$.when(Ajax.execute(keywords))
 			.then(function(xml) {
 				console.debug('===== getHiragana ===== ' + 'keyword: ' + xml);
