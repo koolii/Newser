@@ -110,9 +110,9 @@ $(function() {
 		e.preventDefault();
 
 		$.when(Ajax.execute($('#search-content').val()))
-			.done(functio(result)) {
+			.done(function(result) {
 				console.log("Success Ajax: " + result);	
-			};
+			});
 	});
 
 
