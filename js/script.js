@@ -162,6 +162,10 @@ $(function() {
 
 		// 商品を取得する
 		var result = searchItemByShop($('#search-content').val());
+
+		$.each(result, function() {
+			console.log(this);
+		})
 	});
 
 	$('#generate-hiragana').on('click', function(e) {
