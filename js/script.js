@@ -69,8 +69,8 @@ $(function() {
 		this.nowRecogniting = false;
 
 		this.recognition.onresult = function (e) {
-	        for (var i = 0; i < e.results.length; i++) {
-	        	var result = e.results[i];
+	        // for (var i = 0; i < e.results.length; i++) {
+	        	var result = e.results[e.results.lengh -1];
 	        	if (result.isFinal && result[0].isFinish == undefined) {
 	        	var target = result[0];
 	        	target.isFinish = true;
@@ -78,10 +78,11 @@ $(function() {
 
 	            finalText += target.transcript;
 
-	        	} else {
-	        		interimText += e.results[i][0].transcript;
-	        	}
-	        }
+	        	} 
+	        // 	else {
+	        // 		interimText += e.results[i][0].transcript;
+	        // 	}
+	        // // }
 
 	        // Insert Value in DOM
 	        $('#speech-text').val(finalText);
