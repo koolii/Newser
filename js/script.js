@@ -94,18 +94,19 @@ $(function() {
 						var thumb = this.thumb;
 
 						var $img = $('<img>').attr('src', this.urls.pc);
+						var $a = $('<a>').addClass('test').attr('href', this.urls.pc);
 						var $li = $('<li>').addClass('l-grid-item pointer');
-
-						$li.wrap('<a class="test">');
 						var $div = $('<div>');
 
 
 						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /><span class="is-none">' + headline + '</span></div>');
 						$div.appendTo($li);
 
+						$li.appendTo($a);
+
 						// $li.wrap('<a class="fancybox" href="' + this.urls.pc  +'">');
 
-						$li.appendTo($ul);
+						$a.appendTo($ul);
 					}
 				});
 		});
