@@ -94,7 +94,7 @@ $(function() {
 						var thumb = this.thumb;
 
 						var $img = $('<img>').attr('src', this.urls.pc);
-						var $a = $('<a>').addClass('fancy').attr('href', this.urls.pc);
+						var $a = $('<a>').attr('href', this.urls.pc);
 						var $li = $('<li>').addClass('l-grid-item pointer');
 						var $div = $('<div>');
 
@@ -117,6 +117,7 @@ $(function() {
 				 		});
 					}
 				});
+
 		});
 	};
 
@@ -188,11 +189,11 @@ $(function() {
 
 
 	// Click Event
-	$(document).on('click', '.l-grid-item', function() {
-		// alert($(this).next().text());
-		// $(this).find("a").trigger("click");
-		return false;
-	});
+	// $(document).on('click', '.l-grid-item', function() {
+	// 	// alert($(this).next().text());
+	// 	// $(this).find("a").trigger("click");
+	// 	return false;
+	// });
 
 	// $(document).on("mouseover", ".fancy", function() {
 	// 	$(this).fancybox({
