@@ -98,7 +98,7 @@ $(function() {
 						var $div = $('<div>');
 
 
-						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /></div><div class="is-none">' + headline + '</div>');
+						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /><span class="is-none">' + headline + '</span></div>');
 						$div.appendTo($li);
 
 						$li.appendTo($ul);
@@ -176,7 +176,7 @@ $(function() {
 
 	// Click Event
 	$(document).on('click', '.popup', function() {
-		alert($(this).find('div').val());
+		alert($(this).next().val());
 	});
 
 
