@@ -182,7 +182,7 @@ $(function() {
 	// Click Event
 	$(document).on('click', '.l-grid-item', function() {
 		// alert($(this).next().text());
-		$(this).find("a").trigger("mouseover");
+		$(this).find("a").trigger("click");
 		return false;
 	});
 
