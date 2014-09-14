@@ -83,6 +83,7 @@ $(function() {
 		$.when(Ajax.execute(keywords))
 			.done(function(result) {
 				var json = $.parseJSON(result);
+				var $ul = $('#news-list');
 
 				console.log("Success Ajax: " + json);	
 				var objs = json.results.article;
@@ -90,6 +91,16 @@ $(function() {
 				$.each(objs, function() {
 					console.log(this.urls.pc);
 					console.log(this.section[0].image[0]);
+
+					var $img = $('img').attr('src', this.urls.pc);
+					var $li = $('li');
+					var $div = $('div');
+
+					$div.append('<div><img src="' + this.urls.pc + '" /></div><div>' + this.section[0].image[0] + '</div>');
+					$div.appendTo($li);
+
+					$li.appendTo($ul);
+
 				});
 		});
 	};
