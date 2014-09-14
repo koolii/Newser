@@ -182,7 +182,7 @@ $(function() {
 	// Click Event
 	$(document).on('click', '.l-grid-item', function() {
 		// alert($(this).next().text());
-		window.open($(this).closest("a").attr("href"),'_self');
+		$(this).closest("a").trigger("click");
 		return false;
 	});
 
