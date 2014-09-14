@@ -176,7 +176,7 @@ $(function() {
 
 	// Click Event
 	$('.l-grid-item').on('click', function() {
-		alert($(this).find('div'));
+		alert($(this).find('div').val());
 	});
 
 
