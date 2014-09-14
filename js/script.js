@@ -55,7 +55,7 @@ $(function() {
 					url += "&hits=" + params.hits;
 				}
 			} else if (type == 'furigana') {
-				sentence = params.sentence;
+				url +=  baseUrl + '&sentence=' + params.sentence;
 			}
 
 			return url;
