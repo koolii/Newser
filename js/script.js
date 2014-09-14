@@ -89,7 +89,7 @@ $(function() {
 				var objs = json.results.article;
 
 				$.each(objs, function() {
-					if (!this) {
+					if (this) {
 						var headline = this.headline;
 						var thumb = this.thumb;
 
