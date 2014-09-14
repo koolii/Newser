@@ -7,7 +7,7 @@ $(function() {
 		execute: function(params) {
 			var $_this = this;
 			var $def = $.Deferred();
-			var url = this.createUrl(keyword);
+			var url = this.createUrl(params);
 
 			$.ajax({
 				type: 'GET',
