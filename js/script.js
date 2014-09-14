@@ -85,10 +85,10 @@ $(function() {
 				var json = $.parseJSON(result);
 
 				console.log("Success Ajax: " + json);	
-				var objs = json.ResultSet[0].Result;
+				var objs = json.results.article;
 
 				$.each(objs, function() {
-					console.log(this);
+					console.log(this.urls.pc);
 				});
 		});
 	};
