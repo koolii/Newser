@@ -1,5 +1,13 @@
 @charset "utf-8"
 
+li {
+	text-decoration: none;
+}
+
+.pointer {
+	cusor: pointer;
+}
+
 .is-none {
 	display: none;
 }

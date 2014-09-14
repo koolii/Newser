@@ -94,11 +94,11 @@ $(function() {
 						var thumb = this.thumb;
 
 						var $img = $('<img>').attr('src', this.urls.pc);
-						var $li = $('<li>').addClass('l-grid-item');
+						var $li = $('<li>').addClass('l-grid-item pointer');
 						var $div = $('<div>');
 
 
-						$div.append('<div><img height="250px" width="300px" src="' + thumb + '" /></div><div class="is_none">' + headline + '</div>');
+						$div.append('<div><img height="250px" width="300px" src="' + thumb + '" /></div><div class="is-none">' + headline + '</div>');
 						$div.appendTo($li);
 
 						$li.appendTo($ul);
