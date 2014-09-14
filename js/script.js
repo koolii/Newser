@@ -70,7 +70,8 @@ $(function() {
 
 		this.recognition.onresult = function (e) {
 	        // for (var i = 0; i < e.results.length; i++) {
-	        	var result = e.results[e.results.lengh -1];
+	        	var lastEleNum = e.results.lengh -1;
+	        	var result = e.results[lastEleNum];
 	        	if (result.isFinal && result[0].isFinish == undefined) {
 	        	var target = result[0];
 	        	target.isFinish = true;
