@@ -98,7 +98,7 @@ $(function() {
 						var $div = $('<div>');
 
 
-						$div.append('<div><img height="250px" width="300px" src="' + thumb + '" /></div><div class="is-none">' + headline + '</div>');
+						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /></div><div class="is-none">' + headline + '</div>');
 						$div.appendTo($li);
 
 						$li.appendTo($ul);
@@ -175,7 +175,7 @@ $(function() {
 
 
 	// Click Event
-	$('.l-grid-item').on('click', function() {
+	$('.popup').on('click', function() {
 		alert($(this).find('div').val());
 	});
 
