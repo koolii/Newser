@@ -54,8 +54,8 @@ $(function() {
 					url = baseUrl + "&query=" + params.query;
 				//}
 
-				if (params.hits) {
-					url += "&hits=" + params.hits;
+				if (params.count) {
+					url += "&count=" + params.count;
 				}
 			} else if (type == 'furigana') {
 				url +=  baseUrl + '&sentence=' + params.sentence;
@@ -73,11 +73,11 @@ $(function() {
 	}; // end Ajax
 
 
-	var searchItemByShop = function(keyword) {
+	var getNews = function(keyword) {
 		var keywords = {
 			type: 'search',
-			url: 'http://shopping.yahooapis.jp/ShoppingWebService/V1/json/itemSearch?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-',
-			query: keyword	
+			url: 'http://webservice.recruit.co.jp/r25/article/v1?type=full&tag=%E3%83%8B%E3%83%A5%E3%83%BC%E3%82%B9&key=9108db1fd6db519e&format=json',
+			count: 10
 		};
 
 		$.when(Ajax.execute(keywords))
@@ -165,7 +165,7 @@ $(function() {
 		e.preventDefault();
 
 		// 商品を取得する
-		searchItemByShop($('#search-content').val());
+		getNews($('#search-content').val());
 	});
 
 	$('#generate-hiragana').on('click', function(e) {
