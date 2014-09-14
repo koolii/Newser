@@ -177,11 +177,10 @@ $(function() {
 
 
 	// Click Event
-	// $(document).on('click', '.popup', function() {
-	// 	alert($(this).next().text());
-	// });
-
-	$("a.fancybox").fancybox();
+	$(document).on('click', '.popup', function() {
+		// alert($(this).next().text());
+		$("a.fancybox").fancybox();
+	});
 
 
 	getNews();
