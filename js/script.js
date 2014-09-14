@@ -28,6 +28,8 @@ $(function() {
 		},
 
 		defaults: {
+			// share
+			datatype: 'json',
 			// search
 			type: '',
 			hits: 25,
@@ -65,7 +67,7 @@ $(function() {
 			var html = $.parseHTML(result.results[0]);
 			var $pElement = $(html[5]);
 
-			return $.parseJSON($pElement.text()).ResultSet[0].Result;
+			return $.parseJSON($pElement.text());
 		}
 	}; // end Ajax
 
@@ -80,12 +82,13 @@ $(function() {
 		$.when(Ajax.execute(keywords))
 			.done(function(json) {
 				console.log("Success Ajax: " + json);	
-				return json;
+				return json.ResultSet[0].Result;
 		});
 	};
 
 	var getHiragana = function(str) {
 		var keywords = {
+			datatype: 'xml',
 			type: 'furigana',
 			url: 'http://jlp.yahooapis.jp/FuriganaService/V1/furigana?appid=dj0zaiZpPXEwME0wemIxUDVYMCZzPWNvbnN1bWVyc2VjcmV0Jng9Yzc-',
 			sentence: str
