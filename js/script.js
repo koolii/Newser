@@ -186,7 +186,7 @@ $(function() {
 		return false;
 	});
 
-	$("a.fancy").on("click", function() {
+	$(document).on("click", "a.fancy", function() {
 		$(this).fancybox({
  			'width'				: '9',
  			'height'			: '85%',
