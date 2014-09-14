@@ -70,11 +70,13 @@ $(function() {
 
 		this.recognition.onresult = function (e) {
 	        for (var i = 0; i < e.results.length; i++) {
-	        	if (e.results[i].isFinal) {
-	            var value = e.results[i][0].transcript;
-	            console.log("Onresult: " + value);
+	        	var result = e.results[i];
+	        	if (result.isFinal && result[0].isFinish == undefined) {
+	        	var target = result[0];
+	        	target.isFinish = true;
+	            console.log("Onresult: " + target.transcript);
 
-	            finalText += value;
+	            finalText += target.transcript;
 
 	        	} else {
 	        		interimText += e.results[i][0].transcript;
