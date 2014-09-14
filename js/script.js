@@ -96,7 +96,7 @@ $(function() {
 					var $li = $('<li>');
 					var $div = $('<div>');
 
-					$div.append('<div><img src="' + this.urls.pc + '" /></div><div>' + this.section[0].image[0] + '</div>');
+					$div.append('<div><img src="' + this.section[0].image[0].s + '" /></div><div>' + this.section[0].image[0].caption + '</div>');
 					$div.appendTo($li);
 
 					$li.appendTo($ul);
