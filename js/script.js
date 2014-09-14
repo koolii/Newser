@@ -186,7 +186,7 @@ $(function() {
 		return false;
 	});
 
-	$(document).on("fancy", ".fancy", function() {
+	$(document).on("mouserover", ".fancy", function() {
 		$(this).fancybox({
  			'width'				: '9',
  			'height'			: '85%',
