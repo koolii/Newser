@@ -176,7 +176,7 @@ $(function() {
 
 	// Click Event
 	$(document).on('click', '.popup', function() {
-		alert($(this).next().val());
+		alert($(this).next().text());
 	});
 
 
