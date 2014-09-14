@@ -89,18 +89,22 @@ $(function() {
 				var objs = json.results.article;
 
 				$.each(objs, function() {
+					var content = this.section[0].image[0];
+
 					console.log(this.urls.pc);
 					console.log(this.section[0].image[0]);
 
-					var $img = $('<img>').attr('src', this.urls.pc);
-					var $li = $('<li>');
-					var $div = $('<div>');
+					if (!content.s) {
+						var $img = $('<img>').attr('src', this.urls.pc);
+						var $li = $('<li>');
+						var $div = $('<div>');
 
-					$div.append('<div><img src="' + this.section[0].image[0].s + '" /></div><div>' + this.section[0].image[0].caption + '</div>');
-					$div.appendTo($li);
 
-					$li.appendTo($ul);
+						$div.append('<div><img src="' + this.section[0].image[0].s + '" /></div><div>' + this.section[0].image[0].caption + '</div>');
+						$div.appendTo($li);
 
+						$li.appendTo($ul);
+					}
 				});
 		});
 	};
