@@ -101,6 +101,8 @@ $(function() {
 						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /><span class="is-none">' + headline + '</span></div>');
 						$div.appendTo($li);
 
+						$li.wrap('<a class="fancybox">');
+
 						$li.appendTo($ul);
 					}
 				});
@@ -179,7 +181,7 @@ $(function() {
 	// 	alert($(this).next().text());
 	// });
 
-	$(".popup").fancybox();
+	$("a.fancybox").fancybox();
 
 
 	getNews();
