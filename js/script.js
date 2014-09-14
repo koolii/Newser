@@ -94,13 +94,13 @@ $(function() {
 					console.log(this.urls.pc);
 					console.log(this.section[0].image[0]);
 
-					if (!content) {
+					if (!content && !content.s) {
 						var $img = $('<img>').attr('src', this.urls.pc);
 						var $li = $('<li>');
 						var $div = $('<div>');
 
 
-						$div.append('<div><img src="' + this.section[0].image[0].s + '" /></div><div>' + this.section[0].image[0].caption + '</div>');
+						$div.append('<div><img src="' + content.s + '" /></div><div>' + content.caption + '</div>');
 						$div.appendTo($li);
 
 						$li.appendTo($ul);
