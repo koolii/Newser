@@ -98,15 +98,15 @@ $(function() {
 						var $li = $('<li>').addClass('l-grid-item pointer');
 						var $div = $('<div>');
 
+						$a.appendTo($div);
+
 
 						$div.append('<div><img class="popup" height="250px" width="300px" src="' + thumb + '" /><span class="is-none">' + headline + '</span></div>');
 						$div.appendTo($li);
 
-						$li.appendTo($a);
-
 						// $li.wrap('<a class="fancybox" href="' + this.urls.pc  +'">');
 
-						$a.appendTo($ul);
+						$li.appendTo($ul);
 					}
 				});
 		});
