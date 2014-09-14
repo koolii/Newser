@@ -75,13 +75,11 @@ $(function() {
         	//target.isFinish = true;
             console.log("Onresult: " + target.transcript);
 
-                if (length > 0) {
-			       console.log(event.results);
-        	       finalText += target.transcript;
-				}
+            if (length > 0) {
+		       console.log(event.results);
+    	       finalText += target.transcript;
+			}
  
-        	} 
-
 	        // Insert Value in DOM
 	        $('#speech-text').val(finalText);
 	    };
