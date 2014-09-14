@@ -69,21 +69,18 @@ $(function() {
 		this.nowRecogniting = false;
 
 		this.recognition.onresult = function (e) {
-	        // for (var i = 0; i < e.results.length; i++) {
-	        	var lastEleNum = e.results.lengh -1;
-	        	var result = e.results[lastEleNum];
-	        	if (result.isFinal && result[0].isFinish == undefined) {
-	        	var target = result[0];
-	        	target.isFinish = true;
-	            console.log("Onresult: " + target.transcript);
+        	var len = e.results.lengh;
+        	var result = e.results[len - 1];
+        	var target = result[0];
+        	//target.isFinish = true;
+            console.log("Onresult: " + target.transcript);
 
-	            finalText += target.transcript;
-
-	        	} 
-	        // 	else {
-	        // 		interimText += e.results[i][0].transcript;
-	        // 	}
-	        // // }
+                if (length > 0) {
+			       console.log(event.results);
+        	       finalText += target.transcript;
+				}
+ 
+        	} 
 
 	        // Insert Value in DOM
 	        $('#speech-text').val(finalText);
