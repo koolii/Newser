@@ -182,11 +182,11 @@ $(function() {
 	// Click Event
 	$(document).on('click', '.l-grid-item', function() {
 		// alert($(this).next().text());
-		$(this).closest("a").trigger("click");
+		$(this).find("a").trigger("click");
 		return false;
 	});
 
-	$(document).on("click", "a.fancy", function() {
+	$(document).on("click", ".fancy", function() {
 		$(this).fancybox({
  			'width'				: '9',
  			'height'			: '85%',
