@@ -175,9 +175,11 @@ $(function() {
 
 
 	// Click Event
-	$(document).on('click', '.popup', function() {
-		alert($(this).next().text());
-	});
+	// $(document).on('click', '.popup', function() {
+	// 	alert($(this).next().text());
+	// });
+
+	$(".popup").fancybox();
 
 
 	getNews();
